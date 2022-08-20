@@ -1,0 +1,47 @@
+body {
+    background-color: rgb(238, 249, 191);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.carta {
+    display: flex;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transition: all .5s;
+}
+
+.carta img {
+    width: 100px;
+    height: 100px;
+}
+
+.tamanhoCarta {
+    width: 117px;
+    height: 146px;
+    background-color: rgb(167, 233, 175);
+    box-shadow: 3px 3px 3px grey;
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: absolute;
+
+
+}
+
+.frente {
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+.verso{
+    backface-visibility: hidden;
+}
+
+.virar {
+    transform: rotateY(180deg);
+}
