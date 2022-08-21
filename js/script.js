@@ -20,7 +20,7 @@ while ((numeroDeCartas % 2 !== 0) || numeroDeCartas > 14 || numeroDeCartas < 4) 
 */
 //Separar cartas para o jogo
 
-let numeroDeCartas = 8; //provisorio, apenas para teste, retirar comentários da sessão anterior
+let numeroDeCartas = 4; //provisorio, apenas para teste, retirar comentários da sessão anterior
 const numeroDeCombinações = numeroDeCartas/2;
 
 const cartaDoJogo = [];
@@ -55,7 +55,8 @@ for (let i = 0; i < numeroDeCartas; i++) {
 
 //Virar Carta
 
-let turno = 0
+let turno = 0;
+let rodadas = 0;
 let cartaTurno1;
 let cartaTurno2;
 let numeroDeAcertos = 0;
@@ -69,6 +70,7 @@ function virarCarta(cartaSelecionada) {
         cartaSelecionada.classList.toggle("virar");
         
         turno++;
+        rodadas+=2
 
     }else {
         cartaTurno2 = cartaSelecionada;
@@ -76,14 +78,16 @@ function virarCarta(cartaSelecionada) {
         cartaSelecionada.classList.toggle("virar");
         
         turno=0;
-
+        
         if(cartaTurno1.innerHTML===cartaTurno2.innerHTML){
             console.log("Parabens")
             numeroDeAcertos++
             cartaTurno1.removeAttribute("onclick")
             cartaTurno2.removeAttribute("onclick")
             if(numeroDeAcertos===numeroDeCombinações){
-                alert("Parabens você ganhou")
+                alert(`Você ganhou em ${rodadas} jogadas`)
+                
+                if(confirm("Dejea jogar novamente?"))
                 location.reload();
             }
         }else{
