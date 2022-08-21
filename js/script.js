@@ -19,14 +19,13 @@ while ((numeroDeCartas % 2 !== 0) || numeroDeCartas > 14 || numeroDeCartas < 4) 
 }
 
 //Separar cartas para o jogo
-
 const cartaDoJogo = [];
-for (let i = 0; i < numeroDeCartas; i+=2) {
+for (let i = 0; i < numeroDeCartas/2; i++) {
     cartaDoJogo.push(baralho[i])
     cartaDoJogo.push(baralho[i])    
 }
 
-
+console.log(cartaDoJogo)
 //Embaralhar as cartas
 
 cartaDoJogo.sort(embaralhar);
