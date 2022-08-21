@@ -11,20 +11,24 @@ const baralho = [
 
 
 //Perguntar número de cartas para jogador
-
+/*
 let numeroDeCartas = prompt("Bem Vindo ao Parrot Card Game!!!\nCom quantas cartar quer jogar?\nVocê precisa escolher um nº par entre 4 e 14");
 
 while ((numeroDeCartas % 2 !== 0) || numeroDeCartas > 14 || numeroDeCartas < 4) {
     numeroDeCartas = prompt("Você precisa escolher um número par de 4 a 14.\n Com quatas cartas quer jogar");
 }
-
+*/
 //Separar cartas para o jogo
+
+let numeroDeCartas = 8; //provisorio, apenas para teste, retirar comentários da sessão anterior
+const numeroDeCombinações = numeroDeCartas/2;
 
 const cartaDoJogo = [];
 for (let i = 0; i < numeroDeCartas; i+=2) {
     cartaDoJogo.push(baralho[i])
     cartaDoJogo.push(baralho[i])    
 }
+
 
 //Embaralhar as cartas
 
@@ -51,6 +55,48 @@ for (let i = 0; i < numeroDeCartas; i++) {
 
 //Virar Carta
 
+let turno = 0
+let cartaTurno1;
+let cartaTurno2;
+let numeroDeAcertos = 0;
+const bloquerTela = document.querySelector('.tela')
+
 function virarCarta(cartaSelecionada) {
-    cartaSelecionada.classList.toggle("virar");
+   
+    if (turno === 0){
+        cartaTurno1 = cartaSelecionada;
+        console.log(cartaTurno1)
+        cartaSelecionada.classList.toggle("virar");
+        
+        turno++;
+
+    }else {
+        cartaTurno2 = cartaSelecionada;
+        console.log(cartaTurno2)
+        cartaSelecionada.classList.toggle("virar");
+        
+        turno=0;
+
+        if(cartaTurno1.innerHTML===cartaTurno2.innerHTML){
+            console.log("Parabens")
+            numeroDeAcertos++
+            cartaTurno1.removeAttribute("onclick")
+            cartaTurno2.removeAttribute("onclick")
+            if(numeroDeAcertos===numeroDeCombinações){
+                alert("Parabens você ganhou")
+                location.reload();
+            }
+        }else{
+            
+            bloquerTela.classList.add('bloqueada');
+            setTimeout(desvirarCarta, 1000);
+
+        }
+    }
 }
+
+function desvirarCarta(){
+    cartaTurno1.classList.toggle("virar");
+    cartaTurno2.classList.toggle("virar");
+    bloquerTela.classList.remove('bloqueada')
+};
