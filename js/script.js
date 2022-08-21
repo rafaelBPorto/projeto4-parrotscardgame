@@ -11,17 +11,14 @@ const baralho = [
 
 
 //Perguntar número de cartas para jogador
-/*
+
 let numeroDeCartas = prompt("Bem Vindo ao Parrot Card Game!!!\nCom quantas cartar quer jogar?\nVocê precisa escolher um nº par entre 4 e 14");
 
 while ((numeroDeCartas % 2 !== 0) || numeroDeCartas > 14 || numeroDeCartas < 4) {
     numeroDeCartas = prompt("Você precisa escolher um número par de 4 a 14.\n Com quatas cartas quer jogar");
 }
-*/
-//Separar cartas para o jogo
 
-let numeroDeCartas = 4; //provisorio, apenas para teste, retirar comentários da sessão anterior
-const numeroDeCombinações = numeroDeCartas/2;
+//Separar cartas para o jogo
 
 const cartaDoJogo = [];
 for (let i = 0; i < numeroDeCartas; i+=2) {
@@ -61,6 +58,7 @@ let cartaTurno1;
 let cartaTurno2;
 let numeroDeAcertos = 0;
 const bloquerTela = document.querySelector('.tela')
+const numeroDeCombinações = numeroDeCartas/2;
 
 function virarCarta(cartaSelecionada) {
    
