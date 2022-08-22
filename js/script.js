@@ -12,7 +12,7 @@ const baralho = [
 
 //Perguntar número de cartas para jogador
 
-let numeroDeCartas = prompt("Bem Vindo ao Parrot Card Game!!!\nCom quantas cartar quer jogar?\nVocê precisa escolher um nº par entre 4 e 14");
+let numeroDeCartas = prompt("Bem Vindo ao jogo da memória Parrot Card Game!!!\nCom quantas cartas quer jogar?\nVocê precisa escolher um nº par entre 4 e 14");
 
 while ((numeroDeCartas % 2 !== 0) || numeroDeCartas > 14 || numeroDeCartas < 4) {
     numeroDeCartas = prompt("Você precisa escolher um número par de 4 a 14.\n Com quatas cartas quer jogar");
@@ -49,6 +49,20 @@ for (let i = 0; i < numeroDeCartas; i++) {
     `;
 }
 
+//Contagem de tempo
+let tempo =0;
+document.querySelector('span').innerHTML=`${tempo} segundos`
+
+setInterval(tempodeJogo, 1000, tempo)
+
+function tempodeJogo(){
+    document.querySelector('span').innerHTML = `${tempo} segundos`;
+    tempo++
+
+}
+
+
+
 //Virar Carta
 
 let turno = 0;
@@ -82,9 +96,9 @@ function virarCarta(cartaSelecionada) {
             cartaTurno1.removeAttribute("onclick")
             cartaTurno2.removeAttribute("onclick")
             if(numeroDeAcertos===numeroDeCombinações){
-                alert(`Você ganhou em ${rodadas} jogadas`)
+                alert(`Você precisou de ${tempo} segundos e finalizou em ${rodadas} jogadas`)
                 
-                if(confirm("Dejea jogar novamente?"))
+                if(confirm("Dejesa jogar novamente?"))
                 location.reload();
             }
         }else{

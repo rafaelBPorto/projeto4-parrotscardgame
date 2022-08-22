@@ -24,6 +24,34 @@ header h1 {
     text-align: center;
 }
 
+header span{
+    
+    position: fixed;
+
+    height: 30px;
+    
+
+    margin-top: 10px;
+    margin-right: 10vw;
+    margin-left: auto;
+
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    top: 0;
+    right: 1px;
+
+    color: white;
+    background-color: #75B79E;
+
+    font-family: 'Roboto', sans-serif;
+
+    padding: 5px;
+}
+
 main {
 
     display: flex;
