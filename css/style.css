@@ -24,13 +24,10 @@ header h1 {
     text-align: center;
 }
 
-header span{
-    
-    position: fixed;
-
+span{
     height: 30px;
     
-
+    max-width: 150px;
     margin-top: 10px;
     margin-right: 10vw;
     margin-left: auto;
