@@ -25,7 +25,6 @@ for (let i = 0; i < numeroDeCartas/2; i++) {
     cartaDoJogo.push(baralho[i])    
 }
 
-console.log(cartaDoJogo)
 //Embaralhar as cartas
 
 cartaDoJogo.sort(embaralhar);
@@ -56,8 +55,8 @@ document.querySelector('span').innerHTML=`${tempo} segundos`
 setInterval(tempodeJogo, 1000, tempo)
 
 function tempodeJogo(){
-    document.querySelector('span').innerHTML = `${tempo} segundos`;
     tempo++
+    document.querySelector('span').innerHTML = `${tempo} segundos`;
 
 }
 
@@ -96,7 +95,7 @@ function virarCarta(cartaSelecionada) {
             cartaTurno1.removeAttribute("onclick")
             cartaTurno2.removeAttribute("onclick")
             if(numeroDeAcertos===numeroDeCombinações){
-                alert(`Você precisou de ${tempo} segundos e finalizou em ${rodadas} jogadas`)
+                alert(`Você precisou de ${tempo} segundos e ${rodadas} jogadas para finalizar`)
                 
                 if(confirm("Dejesa jogar novamente?"))
                 location.reload();
